@@ -1,0 +1,21 @@
+{
+  "name": "odin-linked-list",
+  "version": "1.0.0",
+  "description": "This project is a learning exercise based on **The Odin Project** curriculum. It implements a singly linked list in JavaScript using two distinct approaches:",
+  "main": "linkedListIterative.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lemuller04/odin-linked-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lemuller04/odin-linked-list/issues"
+  },
+  "homepage": "https://github.com/Lemuller04/odin-linked-list#readme",
+  "type": "module"
+}

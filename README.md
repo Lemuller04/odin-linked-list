@@ -20,6 +20,12 @@ This project is a learning exercise based on **The Odin Project** curriculum. It
   - `insertAt(value, index)` — Inserts a node at a specific index
   - `removeAt(index)` — Removes the node at a specific index
 
+## Testing
+
+- To test, run 'node test.js [filename]'
+- File name can be either linkedListIterative or linkedListRecursive
+- You can edit the tests however you want inside the run function in tests.js
+
 ## 🎯 Learning Goals
 
 - Practice building data structures from scratch

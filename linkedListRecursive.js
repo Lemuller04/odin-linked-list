@@ -208,3 +208,5 @@ const LinkedList = () => {
     removeAt,
   };
 };
+
+export { LinkedList };
