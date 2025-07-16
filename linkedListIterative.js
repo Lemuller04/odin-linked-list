@@ -1,10 +1,7 @@
 const Node = (value = null) => {
-  value = value;
-  let nextNode = null;
-
   return {
     value,
-    nextNode,
+    nextNode: null,
   };
 };
 
@@ -50,26 +47,17 @@ const LinkedList = () => {
 
   function at(index) {
     let current = listHead;
-    let endOfList = false;
-    let counter = 0;
 
-    while (!endOfList) {
-      if (!current.nextNode) endOfList = true;
-      if (counter === index) {
-        return current;
-      }
+    for (let i = 0; i < listSize; i++) {
+      if (i === index) return current;
       current = current.nextNode;
-      counter++;
     }
 
     return null;
   }
 
   function pop() {
-    if (listSize < 1) {
-      console.log("List already empty");
-      return;
-    }
+    if (listSize < 1) return;
 
     if (listSize === 1) {
       listHead = null;
@@ -85,13 +73,9 @@ const LinkedList = () => {
 
   function contains(value) {
     let current = listHead;
-    let endOfList = false;
 
-    while (!endOfList) {
-      if (!current.nextNode) endOfList = true;
-      if (current.value === value) {
-        return true;
-      }
+    for (let i = 0; i < listSize; i++) {
+      if (current.value === value) return true;
       current = current.nextNode;
     }
 
@@ -100,15 +84,9 @@ const LinkedList = () => {
 
   function find(value) {
     let current = listHead;
-    let endOfList = false;
-    let counter = 0;
 
-    while (!endOfList) {
-      if (!current.nextNode) endOfList = true;
-      if (current.value === value) {
-        return counter;
-      }
-      counter++;
+    for (let i = 0; i < listSize; i++) {
+      if (current.value === value) return i;
       current = current.nextNode;
     }
 
@@ -117,11 +95,9 @@ const LinkedList = () => {
 
   function toString() {
     let current = listHead;
-    let endOfList = false;
     let str = "";
 
-    while (!endOfList) {
-      if (!current.nextNode) endOfList = true;
+    for (let i = 0; i < listSize; i++) {
       str += `( ${current.value} ) -> `;
       current = current.nextNode;
     }
@@ -130,14 +106,23 @@ const LinkedList = () => {
   }
 
   function insertAt(value, index) {
-    if (index >= listSize) {
-      console.log("Index out of bounds, value appended to list");
+    if (index > listSize) {
+      console.log(
+        "ATTENTION: index out of bounds. Value has been appended to the list",
+      );
       append(value);
       return;
     }
 
-    if (index <= 0) {
-      console.log("Value prepended to list");
+    if (index < 0) {
+      console.log(
+        "ATTENTION: index is less than zero. Value has been prepended to the list",
+      );
+      prepend(value);
+      return;
+    }
+
+    if (index === 0) {
       prepend(value);
       return;
     }
@@ -150,14 +135,35 @@ const LinkedList = () => {
   }
 
   function removeAt(index) {
-    if (index > listSize - 1 || index < 0) {
-      console.log("Error: Index out of bounds.");
+    if (listSize === 0) {
+      console.log(
+        "ATTENTION: list is empty. Nothing has been removed from the list",
+      );
+      return;
+    }
+
+    if (index >= listSize || index < 0) {
+      console.log(
+        "ATTENTION: index out of bounds. Nothing has been removed from the list",
+      );
+      return;
+    }
+
+    if (listSize === 1) {
+      listHead = null;
+      listTail = null;
+      listSize = 0;
       return;
     }
 
     if (index === 0) {
       listHead = at(1);
       listSize--;
+      return;
+    }
+
+    if (index === listSize - 1) {
+      pop();
       return;
     }
 
