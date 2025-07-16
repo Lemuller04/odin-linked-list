@@ -24,7 +24,6 @@ This project is a learning exercise based on **The Odin Project** curriculum. It
 
 - To test, run 'node tests.js [filename]'
 - File name can be either linkedListIterative.js or linkedListRecursive.js
-- You can edit the tests however you want inside the run function in tests.js
 
 ## 🎯 Learning Goals
 

@@ -1,5 +1,5 @@
-const Node = () => {
-  let value = null;
+const Node = (value = null) => {
+  value = value;
   let nextNode = null;
 
   return {
@@ -14,8 +14,7 @@ const LinkedList = () => {
   let listSize = 0;
 
   function append(value) {
-    let newNode = Node();
-    newNode.value = value;
+    let newNode = Node(value);
 
     if (listTail) listTail.nextNode = newNode;
 
@@ -25,8 +24,7 @@ const LinkedList = () => {
   }
 
   function prepend(value) {
-    let newNode = Node();
-    newNode.value = value;
+    let newNode = Node(value);
 
     if (listHead) {
       newNode.nextNode = listHead;
@@ -144,8 +142,7 @@ const LinkedList = () => {
       return;
     }
 
-    let newNode = Node();
-    newNode.value = value;
+    let newNode = Node(value);
     newNode.nextNode = at(index);
 
     at(index - 1).nextNode = newNode;

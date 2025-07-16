@@ -1,7 +1,7 @@
 const argv = process.argv;
 
 if (argv.length != 3) {
-  throw new Error("Wrong usage. Use: 'node test.js [file]'");
+  throw new Error("Wrong usage. Use: 'node tests.js [file]'");
 }
 
 const file = argv[2];
@@ -14,6 +14,8 @@ const filePath = `./${file}`;
 
 const run = async () => {
   const { LinkedList } = await import(filePath);
+
+  // Write tests below:
 
   const list = LinkedList();
 
